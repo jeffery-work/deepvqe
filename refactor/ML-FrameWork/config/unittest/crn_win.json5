@@ -1,0 +1,74 @@
+{
+    "seed": 0,
+    "description": "null",          // nothing to desc
+    "root_dir": "D:\\GrandStream\\Base_DeepL_Alg\\ML-tour\\Root",
+    "ResetDatasets": 0,
+    "cudnn_deterministic": false,
+    "trainer": {
+        "start_epoch": 1,
+        "epochs": 500,
+        "save_checkpoint_interval": 10,
+        "validation": {
+            "interval": 10,
+            "start_save_epoch": 100,
+            "find_max": true,
+            "custom": {
+                "visualize_audio_limit": 20,
+                "visualize_waveform_limit": 20,
+                "visualization_limit": 20,
+                "visualize_spectrogram_limit": 20,
+                "n_fft": 320,
+                "win_length": 320,
+                "hop_length": 160,
+                "unfold_size": 256,
+                "validation_batch_size": 100,
+                "batch_size": 1,
+                "inference_type": "full_band_no_truncation"
+            },
+        "feature": {
+            "nfft": 320,
+            "hop_len": 160,
+            "win_len": 320,
+            },
+        },
+    },
+    "model": {
+        "module": "Model.BaseUnet",
+        "main": "BaseUnet",
+        "args": {}
+    },
+    "loss_function": {
+        "module": "Utility.LossFunction",
+        "main": "TorchMSELoss",
+        "args": {}
+    },
+    "optimizer": {
+        "lr": 0.0001,
+        "beta1": 0.0,
+        "beta2": 0.9
+    },
+    "train_dataset": {
+        "module": "Dataset.WavDataset",
+        "main": "WavDataset",
+        "args": {
+            params: {
+                "metafile": 'D:\\machine-learning\\data\\train\\train_metadata.csv',
+            },
+        }
+    },
+    "validation_dataset": {
+        "module": "Dataset.WavDataset",
+        "main": "WavDataset",
+        "args": {
+            params: {
+                "metafile": 'D:\\machine-learning\\data\\vail\\vail_metadata.csv',
+            },
+        }
+    },
+    "train_dataloader": {
+        "batch_size": 32,
+        "num_workers": 0,
+        "shuffle": false,
+        "pin_memory": true
+    }
+}

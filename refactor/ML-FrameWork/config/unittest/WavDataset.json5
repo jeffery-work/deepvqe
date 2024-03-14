@@ -1,0 +1,5 @@
+{
+    "metafile": 'D:/machine-learning/data/clean/train/train_metadata.csv',
+    'sample_rate': 16000,
+    feature_len:64,
+}

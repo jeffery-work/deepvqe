@@ -1,0 +1,18 @@
+{
+    "noise_dir": 'D:/machine-learning/data/noise_16k',
+    "clean_dir": 'D:/machine-learning/data/clean_16k',
+    "train_dir": 'D:/machine-learning/data/train',
+    "vail_dir": 'D:/machine-learning/data/vail',
+    "mix_params": {
+        "cfg": 'None',
+        "target_level_lower": -35,
+        "target_level_upper": -15,
+        "snr_lower": 10,
+        "snr_upper": 30,
+        "target_level": -25,
+        "clipping_threshold": 0.9,
+        "vail_rate": 0.1,
+        "wav_len": 160000,       // 10s
+        "sr": 16000,
+    }
+}
